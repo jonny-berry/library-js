@@ -20,8 +20,14 @@ function addBookToLibrary(title, author, totalPages, read) {
 }
 
 // Example books
-addBookToLibrary('this is a book', 'lewis', 200, true);
-addBookToLibrary('also a book', 'clark', 15, false);
+addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
+addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
+addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
+addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+
+let bookGridContainer = document.getElementById('book-grid-container');
 
 // Create elements to display book object information and append them to the DOM
 function displayBooks() {
@@ -31,17 +37,32 @@ function displayBooks() {
     let bookName = document.createElement('p');
     let bookAuthor = document.createElement('p');
     let bookPage = document.createElement('p');
-    let read = document.createElement('p');
+    let readButton = document.createElement('button');
+    let removeButton = document.createElement('button');
 
-    const cardElements = [bookName, bookAuthor, bookPage, read];
-    const propertyNames = ['title', 'author', 'totalPages', 'read']
-    document.body.appendChild(bookCard);
+    // Add classes to card elements
+    bookCard.classList.add('book-card');
+    bookName.classList.add('book-title');
+    bookAuthor.classList.add('book-author');
+    bookPage.classList.add('book-page');
+    readButton.classList.add('read-button');
+    removeButton.classList.add('remove-button');
+
+    const cardElements = [bookName, bookAuthor, bookPage];
+    const propertyNames = ['title', 'author', 'totalPages']
+    bookGridContainer.appendChild(bookCard);
 
     // Add card elements inner HTML and append the elements to bookCard
     for (let elemIndex = 0; elemIndex < cardElements.length; elemIndex++) {
       cardElements[elemIndex].innerHTML = myLibrary[libraryIndex][propertyNames[elemIndex]]
       bookCard.appendChild(cardElements[elemIndex]);
     }
+
+    bookPage.innerHTML += ' pages';
+    readButton.innerHTML = 'Read';
+    removeButton.innerHTML = 'Remove';
+    bookCard.appendChild(readButton);
+    bookCard.appendChild(removeButton);
   }
 }
 

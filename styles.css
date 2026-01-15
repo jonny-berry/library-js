@@ -22,19 +22,58 @@ body {
   margin-right: 1.5%;
 }
 
-#add-button-wrapper {
+#add-book-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2% 0 2% 0;
 }
 
-#add-button {
+#add-book-button {
   border: none;
   background-color: rgba(255, 255, 255, 0);
   font-size: 2rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+#add-book-dialog {
+  border-radius: 25px;
+  padding: 3%;
+}
+
+#add-book-form {
+  display: grid;
+  grid-template: 2fr 1fr 1fr 1fr 1fr / 1fr;
+  gap: 5%;
+  align-items: center;
+  height: 50vh;
+  width: 30vw;
+}
+
+#add-book-form > h1 {
+  display: grid;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+#book-title-input {
+  display: grid;
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+#book-author-input {
+  display: grid;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+#book-page-input {
+  display: grid;
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+#read-checkbox-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 #book-grid-container {
@@ -46,8 +85,22 @@ body {
 
 @media (min-width: 1500px) {
   #book-grid-container {
-  display: grid;
-  grid-template: 40vh 40vh 40vh / 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template: 40vh 40vh 40vh / 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  #book-grid-container {
+    display: grid;
+    grid-template: 40vh 40vh 40vh / 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  #book-grid-container {
+    display: grid;
+    grid-template: repeat(8, 40vh) / 1fr;
   }
 }
 
@@ -56,6 +109,8 @@ body {
   color: #1d1d1d;
   border-radius: 15px;
   padding: 5%;
+  justify-content: center;
+  align-items: center;
 }
 
 .book-title {

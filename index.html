@@ -16,9 +16,22 @@
     <img src="images/header-logo.png" alt="">
     <h1>Library</h1>
   </header>
-  <div id="add-button-wrapper">
-  <button id="add-button">+ Add Button</button>
+  <div id="add-book-wrapper">
+  <button id="add-book-button">+ Add Book</button>
   </div>
+  <dialog id="add-book-dialog">
+    <form id="add-book-form" action="" method="dialog">
+      <h1>Add a new book</h1>
+      <input id="book-title-input" type="text" placeholder="Title">
+      <input id="book-author-input" type="text" placeholder="Author">
+      <input id="book-page-input" type="number" placeholder="Number of Pages">
+      <div id="checkbox-wrapper">
+        <label id="read-checkbox-label" read-checkbox">Have you read this book?</label>
+        <input id="read-checkbox-input" type="checkbox">
+      </div>
+      <button>Add Book</button>
+    </form>
+  </dialog>
   <main id="book-grid-container"></main>
   <script src="script.js"></script>
 </body>

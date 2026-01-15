@@ -58,7 +58,7 @@ function displayBooks() {
       bookCard.appendChild(cardElements[elemIndex]);
     }
 
-    bookPage.innerHTML += ' pages';
+    bookPage.innerHTML += ' pages'; // Add the word pages after page count
     readButton.innerHTML = 'Read';
     removeButton.innerHTML = 'Remove';
     bookCard.appendChild(readButton);
@@ -66,4 +66,13 @@ function displayBooks() {
   }
 }
 
-displayBooks();
+  displayBooks();
+
+  // Create variables for dialog elements
+  let addBookDialog = document.getElementById('add-book-dialog');
+  let addBookButton = document.getElementById('add-book-button');
+
+  // Display dialog modal on click
+  addBookButton.addEventListener('click', () => {
+    addBookDialog.showModal();
+  })

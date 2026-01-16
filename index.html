@@ -22,14 +22,14 @@
   <dialog id="add-book-dialog">
     <form id="add-book-form" action="" method="dialog">
       <h1>Add a new book</h1>
-      <input id="book-title-input" type="text" placeholder="Title">
-      <input id="book-author-input" type="text" placeholder="Author">
-      <input id="book-page-input" type="number" placeholder="Number of Pages">
+      <input id="book-title-input" type="text" placeholder="Title" name="title" required>
+      <input id="book-author-input" type="text" placeholder="Author" name="author" required>
+      <input id="book-page-input" type="number" min="1" placeholder="Number of Pages" name="num_pages" required>
       <div id="checkbox-wrapper">
-        <label id="read-checkbox-label" read-checkbox">Have you read this book?</label>
-        <input id="read-checkbox-input" type="checkbox">
+        <label id="read-checkbox-label" for="read-checkbox-input">Have you read this book?</label>
+        <input id="read-checkbox-input" type="checkbox" name="read_checkbox">
       </div>
-      <button>Add Book</button>
+      <button id="submit-book-button" type="submit">Add Book</button>
     </form>
   </dialog>
   <main id="book-grid-container"></main>

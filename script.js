@@ -14,6 +14,14 @@ function Book(title, author, totalPages, read) {
 
 // Creates a book object using the given parameters then pushes it to the end of the myLibrary array
 function addBookToLibrary(title, author, totalPages, read) {
+  if (read === null) {
+    read = false;
+  }
+  
+  if (read === 'on') {
+    read = true;
+  }
+
   let book = new Book(title, author, totalPages, read);
   book.id = crypto.randomUUID();  // Give book random unique ID
   myLibrary.push(book);
@@ -31,6 +39,8 @@ let bookGridContainer = document.getElementById('book-grid-container');
 
 // Create elements to display book object information and append them to the DOM
 function displayBooks() {
+  bookGridContainer.innerHTML = ''; // Clear inner HTML to prevent duplicate renders
+
   for (let libraryIndex = 0; libraryIndex < myLibrary.length; libraryIndex++) {
     // Create card elements
     let bookCard = document.createElement('div');
@@ -76,3 +86,33 @@ function displayBooks() {
   addBookButton.addEventListener('click', () => {
     addBookDialog.showModal();
   })
+
+  let newBookForm = document.getElementById('add-book-form');
+
+  // Get form data on new book submission
+  newBookForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Stores current form data
+    var formData = new FormData(newBookForm);
+    // Pass data to create new book
+    addBookToLibrary(formData.get('title'), formData.get('author'), parseInt(formData.get('num_pages')), formData.get('read_checkbox'));
+    displayBooks();
+  
+    addBookDialog.close();
+    clearFormInputs();  // Clear input for next book addition
+  });
+
+  function clearFormInputs() { 
+    // Store all input elements in variables
+    let titleInput = document.getElementById('book-title-input');
+    let authorInput = document.getElementById('book-author-input');
+    let pageInput = document.getElementById('book-page-input');
+    let checkBoxInput = document.getElementById('read-checkbox-input');
+
+    // Clear user input
+    titleInput.value = '';
+    authorInput.value = '';
+    pageInput.value = '';
+    checkBoxInput.checked = false;
+  }

@@ -47,8 +47,9 @@ function displayBooks() {
     let bookName = document.createElement('p');
     let bookAuthor = document.createElement('p');
     let bookPage = document.createElement('p');
-    let readButton = document.createElement('button');
     let removeButton = document.createElement('button');
+    let readButton = document.createElement('button');
+    readButton.classList.add(crypto.randomUUID());  // Give button class with random name 
 
     // Add classes to card elements
     bookCard.classList.add('book-card');
@@ -82,9 +83,18 @@ function displayBooks() {
   let addBookDialog = document.getElementById('add-book-dialog');
   let addBookButton = document.getElementById('add-book-button');
 
-  // Display dialog modal on click
   addBookButton.addEventListener('click', () => {
+    // Display dialog modal on click
     addBookDialog.showModal();
+
+    // Close form on close button click
+    let closeFormBtn = document.getElementById('close-form');
+    closeFormBtn.addEventListener('click', () => {
+      addBookDialog.close();
+      document.body.style.overflow = 'visible';
+    });
+
+    document.body.style.overflow = 'hidden';
   })
 
   let newBookForm = document.getElementById('add-book-form');
@@ -100,8 +110,11 @@ function displayBooks() {
     displayBooks();
   
     addBookDialog.close();
+    document.body.style.overflow = 'visible';
     clearFormInputs();  // Clear input for next book addition
-  });
+  })
+
+  
 
   function clearFormInputs() { 
     // Store all input elements in variables

@@ -67,10 +67,32 @@ function displayBooks() {
     for (let elemIndex = 0; elemIndex < cardElements.length; elemIndex++) {
       cardElements[elemIndex].innerHTML = myLibrary[libraryIndex][propertyNames[elemIndex]]
       bookCard.appendChild(cardElements[elemIndex]);
+    
+      // Add class and innerHTML to style cards based on read status
+      if (myLibrary[libraryIndex].read === true) {
+        readButton.innerHTML = 'Read';
+      }
+      else {
+        readButton.classList.add('want-to-read');
+        readButton.innerHTML = 'Want to Read';
+      }
     }
 
+    // Style cards on read status update
+      readButton.addEventListener('click', () => {
+        if (myLibrary[libraryIndex].read === false) {
+          readButton.classList.remove('want-to-read');
+          readButton.innerHTML = 'Read';
+          myLibrary[libraryIndex].read = true;
+        }
+        else {
+          myLibrary[libraryIndex].read = false;
+          readButton.innerHTML = 'Want to Read';
+          readButton.classList.add('want-to-read');
+        }
+      })
+      
     bookPage.innerHTML += ' pages'; // Add the word pages after page count
-    readButton.innerHTML = 'Read';
     removeButton.innerHTML = 'Remove';
     bookCard.appendChild(readButton);
     bookCard.appendChild(removeButton);

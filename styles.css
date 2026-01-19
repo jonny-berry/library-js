@@ -2,6 +2,11 @@
   font-family: 'Poppins';
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   background-color: #cdb885;
   padding: 0;
@@ -193,6 +198,38 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border: 2px solid rgba(0, 0, 0, 0.282);
 }
 
+#footer {
+  margin: 5% 0 5% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  justify-self: center;
+}
+
+#github-wrapper {
+  display: flex;
+  align-items: center;
+  font-weight: 450;
+  justify-content: center;
+  text-align: center;
+}
+
+#github-wrapper > a > p {
+  margin: 0;
+}
+
+#github-wrapper > a > img {
+  height: 4.5vh;
+  margin-right: 1vw;
+}
+
+#lower-footer > a > p {
+  margin: 2vh 0 0 0;
+  text-align: center;
+}
+
 @media (min-width: 1170px) {
   #book-grid-container {
     display: grid;
@@ -229,6 +266,14 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template: repeat(auto-fit, 50vh) / 1fr 1fr;
   }
+
+  #footer {
+    margin-top: 10%;
+  }
+
+  #lower-footer {
+      font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -257,6 +302,21 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
   #add-book-form {
     width: 70vw;
+  }
+
+  #footer {
+    width: 80vw;
+    margin-top: 12%;
+  }
+
+  #github-wrapper {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  #lower-footer {
+    margin: 0 0 8% 0;
+    font-size: 0.7rem;
   }
 }
 

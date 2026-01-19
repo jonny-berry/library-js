@@ -115,7 +115,7 @@ body {
 
 #book-grid-container {
   display: grid;
-  grid-template: 50vh 50vh 50vh / 1fr 1fr 1fr;
+  grid-template: repeat(auto-fit, 50vh 50vh 50vh) / 1fr 1fr 1fr;
   gap: 3%;
   margin: 0 3% 0 3%;
 }
@@ -196,7 +196,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 @media (min-width: 1170px) {
   #book-grid-container {
     display: grid;
-    grid-template: 55vh 55vh 55vh / 1fr 1fr 1fr 1fr;
+    grid-template: repeat(auto-fit, 55vh 55vh 55vh) / 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -227,14 +227,14 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 @media (max-width: 780px) {
   #book-grid-container {
     display: grid;
-    grid-template: 50vh 50vh 50vh / 1fr 1fr;
+    grid-template: repeat(auto-fit, 50vh) / 1fr 1fr;
   }
 }
 
 @media (max-width: 480px) {
   #book-grid-container {
     display: grid;
-    grid-template: repeat(8, 55vh) / 1fr;
+    grid-template: repeat(auto-fit, 55vh) / 1fr;
     margin: 6% 6% 0 6%;
     gap: 1%;
   }
@@ -290,7 +290,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
 @media (max-width: 390px) {
   #book-grid-container {
-    grid-template: 60vh 60vh 60vh 60vh / 1fr;
+    grid-template: repeat(auto-fit, 60vh) / 1fr;
   }
   .book-page {
     margin-bottom: 20%;

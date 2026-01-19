@@ -13,6 +13,14 @@ body {
   margin: 0;
 }
 
+input,
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  color: inherit;
+}
+
+
 #header {
   background-color: #6e5034;
   color: white;
@@ -43,6 +51,7 @@ body {
   cursor: pointer;
   transition: background-color 0.5s ease;
   border-radius: 15px;
+  margin-bottom: 3%;
 }
 
 #add-book-button:hover {
@@ -76,6 +85,13 @@ body {
 #add-book-form > h1 {
   display: grid;
   grid-area: 1 / 1 / 2 / 2;
+}
+#book-title-input,
+#book-author-input,
+#book-page-input {
+  font-size: 17px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 #book-title-input {
@@ -112,6 +128,7 @@ body {
   font-weight: 600;
   transition: background-color 0.1s ease;
   background-color: #49e9ef;
+  font-size: 1rem;
 }
 
 #submit-book-button:active {
@@ -199,7 +216,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #footer {
-  margin: 5% 0 5% 0;
+  margin: 10% 0 5% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

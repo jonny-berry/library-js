@@ -2,14 +2,16 @@ const myLibrary = []; // Contains all book objects
 
 // Constructs new book objects
 function Book(title, author, totalPages, read) {
+  // Throw error if function is not called with new
   if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
   }
 
+  // Store book data
   this.title = title;
   this.author = author;
   this.totalPages = totalPages;
-  this.read = read;
+  this.read = read; // Stores books read status
 }
 
 // Creates a book object using the given parameters then pushes it to the end of the myLibrary array
@@ -28,7 +30,7 @@ function addBookToLibrary(title, author, totalPages, read) {
 }
 
 // Example books
-addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
+addBookToLibrary('The Hobbit', 'Lewis C', 200, false);
 addBookToLibrary('Harry Potter', 'Clark B', 15, false);
 addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
 addBookToLibrary('Harry Potter', 'Clark B', 15, false);
@@ -36,10 +38,14 @@ addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
 addBookToLibrary('Harry Potter', 'Clark B', 15, false);
 
 let bookGridContainer = document.getElementById('book-grid-container');
+let readButtonClasses = []
+let removeButtonClasses = []
 
 // Create elements to display book object information and append them to the DOM
 function displayBooks() {
   bookGridContainer.innerHTML = ''; // Clear inner HTML to prevent duplicate renders
+  readButtonClasses = []
+  removeButtonClasses = []
 
   for (let libraryIndex = 0; libraryIndex < myLibrary.length; libraryIndex++) {
     // Create card elements
@@ -50,6 +56,7 @@ function displayBooks() {
     let removeButton = document.createElement('button');
     let readButton = document.createElement('button');
     readButton.classList.add(crypto.randomUUID());  // Give button class with random name 
+    removeButton.classList.add(crypto.randomUUID());
 
     // Add classes to card elements
     bookCard.classList.add('book-card');
@@ -78,26 +85,34 @@ function displayBooks() {
       }
     }
 
-    // Style cards on read status update
-      readButton.addEventListener('click', () => {
-        if (myLibrary[libraryIndex].read === false) {
-          readButton.classList.remove('want-to-read');
-          readButton.innerHTML = 'Read';
-          myLibrary[libraryIndex].read = true;
-        }
-        else {
-          myLibrary[libraryIndex].read = false;
-          readButton.innerHTML = 'Want to Read';
-          readButton.classList.add('want-to-read');
-        }
-      })
-      
     bookPage.innerHTML += ' pages'; // Add the word pages after page count
     removeButton.innerHTML = 'Remove';
     bookCard.appendChild(readButton);
     bookCard.appendChild(removeButton);
+
+    readButtonClasses.push(readButton.classList[0]);
+    removeButtonClasses.push(removeButton.classList[0]);
   }
 }
+
+bookGridContainer.addEventListener('click', (event) => { 
+  for (let i = 0; i < readButtonClasses.length; i++) {
+    if (readButtonClasses.at(i) === event.target.classList[0]) {
+      if (myLibrary[i].read === true) {
+        myLibrary[i].read = false;
+        event.target.innerHTML = 'Want to Read';
+        event.target.classList.remove('read');
+        event.target.classList.add('want-to-read');
+      }
+      else if (myLibrary[i].read === false) {
+        myLibrary[i].read = true;
+        event.target.innerHTML = 'Read';
+        event.target.classList.remove('want-to-read');
+        event.target.classList.add('read');
+      }
+    }
+  }
+})
 
   displayBooks();
 
@@ -113,10 +128,10 @@ function displayBooks() {
     let closeFormBtn = document.getElementById('close-form');
     closeFormBtn.addEventListener('click', () => {
       addBookDialog.close();
-      document.body.style.overflow = 'visible';
+      document.body.style.overflow = 'visible'; // Unlock scrolling
     });
 
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';  // Lock scrolling
   })
 
   let newBookForm = document.getElementById('add-book-form');
@@ -127,13 +142,16 @@ function displayBooks() {
 
     // Stores current form data
     var formData = new FormData(newBookForm);
+
     // Pass data to create new book
     addBookToLibrary(formData.get('title'), formData.get('author'), parseInt(formData.get('num_pages')), formData.get('read_checkbox'));
     displayBooks();
   
     addBookDialog.close();
-    document.body.style.overflow = 'visible';
+    document.body.style.overflow = 'visible'; // Unlock scrolling
+
     clearFormInputs();  // Clear input for next book addition
+        console.log(myLibrary)
   })
 
   

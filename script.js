@@ -114,6 +114,15 @@ bookGridContainer.addEventListener('click', (event) => {
   }
 })
 
+bookGridContainer.addEventListener('click', (event) => { 
+  for (let i = 0; i < removeButtonClasses.length; i++) {
+    if (removeButtonClasses.at(i) === event.target.classList[0]) {
+      myLibrary.splice(i, 1);
+      displayBooks();
+    }
+  }
+})
+
   displayBooks();
 
   // Create variables for dialog elements

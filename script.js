@@ -1,5 +1,31 @@
 const myLibrary = []; // Contains all book objects
 
+function saveLibrary() {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+function loadLibrary() {
+const libraryJSON = localStorage.getItem('myLibrary');
+
+if (libraryJSON) {
+  const savedBooks = JSON.parse(libraryJSON);
+  savedBooks.forEach(bookData => {
+    const book = new Book(bookData.title, bookData.author, bookData.totalPages, bookData.read);
+    book.id = bookData.id;
+    myLibrary.push(book);
+  });
+}
+
+else {
+  addBookToLibrary('The Hobbit', 'Lewis C', 200, false);
+  addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+  addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
+  addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+  addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
+  addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+}
+}
+
 // Constructs new book objects
 function Book(title, author, totalPages, read) {
   // Throw error if function is not called with new
@@ -28,14 +54,6 @@ function addBookToLibrary(title, author, totalPages, read) {
   book.id = crypto.randomUUID();  // Give book random unique ID
   myLibrary.push(book);
 }
-
-// Example books
-addBookToLibrary('The Hobbit', 'Lewis C', 200, false);
-addBookToLibrary('Harry Potter', 'Clark B', 15, false);
-addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
-addBookToLibrary('Harry Potter', 'Clark B', 15, false);
-addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
-addBookToLibrary('Harry Potter', 'Clark B', 15, false);
 
 let bookGridContainer = document.getElementById('book-grid-container');
 let readButtonClasses = []
@@ -112,6 +130,7 @@ bookGridContainer.addEventListener('click', (event) => {
       }
     }
   }
+  saveLibrary()
 })
 
 bookGridContainer.addEventListener('click', (event) => { 
@@ -121,8 +140,10 @@ bookGridContainer.addEventListener('click', (event) => {
       displayBooks();
     }
   }
+  saveLibrary();
 })
 
+  loadLibrary();
   displayBooks();
 
   // Create variables for dialog elements
@@ -155,12 +176,13 @@ bookGridContainer.addEventListener('click', (event) => {
     // Pass data to create new book
     addBookToLibrary(formData.get('title'), formData.get('author'), parseInt(formData.get('num_pages')), formData.get('read_checkbox'));
     displayBooks();
+    saveLibrary();
   
     addBookDialog.close();
     document.body.style.overflow = 'visible'; // Unlock scrolling
 
     clearFormInputs();  // Clear input for next book addition
-        console.log(myLibrary)
+    console.log(myLibrary)
   })
 
   

@@ -20,7 +20,7 @@ else {
   addBookToLibrary('The Stand', 'Stephen King', 1221, false);
   addBookToLibrary('The Hobbit', 'John R. R. Tolkien', 309, true);
   addBookToLibrary('Atomic Habits', 'James Clear', 319, true);
-  addBookToLibrary('Catching Fire', 'Suzanne Collins', 410, false);
+  addBookToLibrary('Hunger Games: Catching Fire', 'Suzanne Collins', 410, false);
 }
 }
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
+  <title>My Library</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/header-logo-v2.png">
   <!-- Poppins font import -->
@@ -23,7 +23,7 @@
     <img id="close-form" src="images/close.svg" alt="">
     <form id="add-book-form" action="" method="dialog">
       <h1>Add a new book</h1>
-      <input id="book-title-input" type="text" placeholder="Title" name="title" required>
+      <input id="book-title-input" type="text" placeholder="Title" name="title" minlength="1" maxlength="" required>
       <input id="book-author-input" type="text" placeholder="Author" name="author" required>
       <input id="book-page-input" type="number" min="1" placeholder="Number of Pages" name="num_pages" required>
       <div id="checkbox-wrapper">
@@ -44,7 +44,7 @@
     </div>
     <div id="lower-footer">
       <a href="https://www.theodinproject.com/" target="_blank">
-        <p>Built during The Odin Project curriculum</p>
+        <p>Built while taking The Odin Project's JavaScript course</p>
       </a>
       <a href="https://github.com/michalosman" target="_blank">
         <p>Inspired by Michalosman</p>

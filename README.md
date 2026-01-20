@@ -1,5 +1,5 @@
 # JavaScript Library
-This is a library page that allows you to track books you have read or want to read. I built this while taking The Odin Project's JavaScript course.
+This is a library page that allows you to log books you have read and keep track of books you want to read. Built while taking The Odin Project's JavaScript course.
 ### Features
 - Dynamically add and remove books
 - Change the read status of books
@@ -20,7 +20,7 @@ This is a library page that allows you to track books you have read or want to r
 
 ---
 
-### Connect with me
+### Connect With Me
 - [Email](jonnydevvs@gmail.com)
 - [GitHub](https://github.com/JonnyFPS)
 - [Twitter / X](https://x.com/jonnyDevvs)

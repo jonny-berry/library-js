@@ -17,12 +17,10 @@ if (libraryJSON) {
 }
 
 else {
-  addBookToLibrary('The Hobbit', 'Lewis C', 200, false);
-  addBookToLibrary('Harry Potter', 'Clark B', 15, false);
-  addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
-  addBookToLibrary('Harry Potter', 'Clark B', 15, false);
-  addBookToLibrary('The Hobbit', 'Lewis C', 200, true);
-  addBookToLibrary('Harry Potter', 'Clark B', 15, false);
+  addBookToLibrary('The Stand', 'Stephen King', 1221, false);
+  addBookToLibrary('The Hobbit', 'John R. R. Tolkien', 309, true);
+  addBookToLibrary('Atomic Habits', 'James Clear', 319, true);
+  addBookToLibrary('Catching Fire', 'Suzanne Collins', 410, false);
 }
 }
 

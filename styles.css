@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 
-input,
+input[type="text"],
 button {
   -webkit-appearance: none;
   appearance: none;
@@ -118,8 +118,6 @@ button {
 
 #read-checkbox-input {
   cursor: pointer;
-  margin-left: 10%;
-  height: 10%;
 }
 
 #submit-book-button {

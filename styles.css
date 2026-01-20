@@ -73,8 +73,10 @@ button {
   grid-template: 2fr 1fr 1fr 1fr 1fr / 1fr;
   gap: 2%;
   align-items: center;
+  justify-content: center;
   height: 60vh;
   width: 30vw;
+  padding: 5%;
 }
 
 #close-form {
@@ -221,7 +223,6 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60vw;
   justify-self: center;
 }
 
@@ -285,7 +286,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
   #footer {
-    margin-top: 10%;
+    margin-top: 17%;
   }
 
   #lower-footer {
@@ -318,12 +319,11 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
   #add-book-form {
-    width: 70vw;
+    width: 100%;
   }
 
   #footer {
-    width: 80vw;
-    margin-top: 12%;
+    margin-top: 40%;
   }
 
   #github-wrapper {

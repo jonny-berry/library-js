@@ -64,6 +64,28 @@ button {
   border: 2px solid black;
   overflow: hidden;
   align-items: center;
+  animation: scale-animation ease 700ms, fade ease 700ms;
+  transform-origin: center;
+  animation-fill-mode: both;
+  will-change:transform
+}
+
+@keyframes fade {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes scale-animation {
+  from {
+    transform: scale(0.3);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 #add-book-dialog::backdrop {
@@ -78,7 +100,6 @@ button {
   justify-content: center;
   height: 60vh;
   width: 30vw;
-  padding: 5%;
   overflow: hidden;
 }
 
@@ -91,6 +112,7 @@ button {
   display: grid;
   grid-area: 1 / 1 / 2 / 2;
 }
+
 #book-title-input,
 #book-author-input,
 #book-page-input {
@@ -201,12 +223,17 @@ button {
 
 .read-button {
   background-color: #5dd376;
-  transition: background-color 0.1s ease;
+  transition: background-color 450ms ease;
+}
+
+.read-button:hover {
+  background-color: #37e85d;
 }
 
 .read-button:active {
   background-color: #a5cbae;
 }
+
 
 .remove-button {
   margin-top: 5%;
@@ -216,6 +243,11 @@ button {
 .want-to-read {
   background-color: #5dd37749;
   border: 2px solid rgba(0, 0, 0, 0.282);
+  transition: background-color 450ms ease;
+}
+
+.want-to-read:hover {
+  background-color: #5dd37787;
 }
 
 #footer {
@@ -233,15 +265,36 @@ button {
   font-weight: 450;
   justify-content: center;
   text-align: center;
+  animation-fill-mode: both;
+}
+
+#github-wrapper:hover #github-logo {
+  animation: shake-back-forth 600ms ease-in-out;
 }
 
 #github-wrapper > a > p {
   margin: 0;
 }
 
-#github-wrapper > a > img {
+#github-logo {
   height: 4.5vh;
   margin-right: 1vw;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shake-back-forth {
+  25% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  75% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 
 #lower-footer > a > p {

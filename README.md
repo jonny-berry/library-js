@@ -21,6 +21,6 @@ This is a library page that allows you to log books you have read and keep track
 ---
 
 ### Connect With Me
-- [Email](jonnydevvs@gmail.com)
-- [GitHub](https://github.com/JonnyFPS)
+- [jonnydevvs@gmail.com](jonnydevvs@gmail.com)
+- [GitHub](https://github.com/jonny-berry)
 - [Twitter / X](https://x.com/jonnyDevvs)

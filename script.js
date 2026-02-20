@@ -5,37 +5,33 @@ function saveLibrary() {
 }
 
 function loadLibrary() {
-const libraryJSON = localStorage.getItem('myLibrary');
+  const libraryJSON = localStorage.getItem('myLibrary');
 
-if (libraryJSON) {
-  const savedBooks = JSON.parse(libraryJSON);
-  savedBooks.forEach(bookData => {
-    const book = new Book(bookData.title, bookData.author, bookData.totalPages, bookData.read);
-    book.id = bookData.id;
-    myLibrary.push(book);
-  });
-}
-
-else {
-  addBookToLibrary('The Stand', 'Stephen King', 1221, false);
-  addBookToLibrary('The Hobbit', 'John R. R. Tolkien', 309, true);
-  addBookToLibrary('Atomic Habits', 'James Clear', 319, true);
-  addBookToLibrary('Hunger Games: Catching Fire', 'Suzanne Collins', 410, false);
-}
-}
-
-// Constructs new book objects
-function Book(title, author, totalPages, read) {
-  // Throw error if function is not called with new
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
+  if (libraryJSON) {
+    const savedBooks = JSON.parse(libraryJSON);
+    savedBooks.forEach(bookData => {
+      const book = new Book(bookData.title, bookData.author, bookData.totalPages, bookData.read);
+      book.id = bookData.id;
+      myLibrary.push(book);
+    });
   }
 
-  // Store book data
-  this.title = title;
-  this.author = author;
-  this.totalPages = totalPages;
-  this.read = read; // Stores books read status
+  else {
+    addBookToLibrary('The Stand', 'Stephen King', 1221, true);
+    addBookToLibrary('The Hobbit', 'John R. R. Tolkien', 309, false);
+    addBookToLibrary('Atomic Habits', 'James Clear', 319, true);
+    addBookToLibrary('The Hunger Games: Catching Fire', 'Suzanne Collins', 410, false);
+  }
+}
+
+class Book {
+  constructor(title, author, totalPages, read) {
+    // Store book data
+    this.title = title;
+    this.author = author;
+    this.totalPages = totalPages;
+    this.read = read; // Stores books read status
+  }
 }
 
 // Creates a book object using the given parameters then pushes it to the end of the myLibrary array

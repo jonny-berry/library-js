@@ -142,6 +142,7 @@ button {
 #checkbox-wrapper {
   display: flex;
   align-items: center;
+  gap: 4%;
 }
 
 #read-checkbox-input {
